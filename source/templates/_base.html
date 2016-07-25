@@ -4,12 +4,12 @@
         <meta charset="UTF-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>{% block title %}Styleguide 2{% endblock %}</title>
+        <title>{% block title %}Open Data 150 - Canada{% endblock %}</title>
 
         <link rel="stylesheet" href="vendor/foundation.min.css"/>
         <link rel="stylesheet" href="vendor/slick.css"/>
         <link rel="stylesheet" href="vendor/prism.css"/>
-        <link rel="stylesheet" href="styles/styleguide.css"/>
+        <link rel="stylesheet" href="vendor/styleguide.css"/>
         <link rel="stylesheet" href="styles/custom-styles.css"/>
         <script src="https://use.typekit.net/mvc3cdb.js"></script>
         <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -82,6 +82,13 @@
 
                 $(this).text($obj.html());
             });
+
+
+            // Timeline fancy hover logic
+
+            $( ".timeline-boxes li" ).hover(function() {
+                $('.timeline-boxes').toggleClass('timeline-boxes--active-' + $(this).index());
+              });
         }); // doc.ready
         </script>
     </body>
