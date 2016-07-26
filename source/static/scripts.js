@@ -45,10 +45,16 @@ $(document).ready(function () {
         $('#overlay').addClass('js-active');
     });
 
+
+    // Table Search
+    $('.js-open-table-search').click(function (e) {
+        e.preventDefault();
+        $(this).parent().siblings('.table-sortable__search').toggleClass('table-sortable__search--active');
+    });
+
     // Main Menu Click Behavior
     $('.js-trigger-menu').click(function (e) {
         $(this).next().addClass('js-active-menu');
-        $('#overlay').addClass('js-active');
     });
 
     // General Click Behavior for Overlay

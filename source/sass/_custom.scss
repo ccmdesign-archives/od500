@@ -1,12 +1,21 @@
+// TODO: update styleguide components
+
+// _table
+// _page-section
+// _form
+
+ 
+
+
 // Abstracted class for color theming
 .top-section,
-.page-section {
+.page-section,
+.top-bar {
   &--main-color { 
     background-color: $main-color; 
     color: $white;
   }
 }
-
 
 .homepage-header {
   h1 {
@@ -83,20 +92,7 @@
 }
 
 
-// Company List - Temp
 
-.company {
-  transition: all .4s ease;
-  &__type { max-width: 100px; }
-  &__founded { max-width: 150px; }
-  &__location { max-width: 250px; }
-  &__last-updated { max-width:250px; }
-
-  &:hover {
-    background-color: rgba($black, .1);
-    transition: all .2s ease;
-  }
-}
 
 .datasets {
   
@@ -116,6 +112,10 @@
   text-transform: none;
   background-color: rgba($black, .05);
   @extend .u-clearfix;
+
+  &:hover {
+    background-color: rgba($black, .1);
+  }
   
   &__name {
     float: left;
@@ -128,20 +128,7 @@
   }
 }
 
-.controls {
-  &__item {
-    @extend .button;
-    @extend .button--icon-only;
-    color: rgba($black, .2);
-    background-color: transparent;
-    margin-left: -4px;
 
-    &:hover {
-      background-color: rgba($black, .2);    
-      color: $white;
-    }
-  }
-}
 
 .company-header {
 

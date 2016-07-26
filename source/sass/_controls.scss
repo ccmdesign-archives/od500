@@ -1,0 +1,16 @@
+.controls {
+  &__item {
+    @extend .u-button;
+    @extend .u-button--icon-only;
+    color: rgba($black, .2);
+    background-color: transparent;
+    float: right;
+
+    &:hover {
+      background-color: $main-color;    
+      color: $white;
+    }
+  }
+
+
+}

@@ -1,7 +1,4 @@
-
-
-
-.button {
+.u-button {
     display: inline-block;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -28,58 +25,63 @@
         margin-left: 0;
         float: none;
     }
-}
+
+    &--purple,
+    &--teal,
+    &--orange,
+    &--blue,
+    &--black,
+    &--naked {
+        color: $white;
+        &:hover { color: $white; }
+    }
 
 
+    &--purple {
+        background-color: $purple;
+        &:hover { background-color: darken($purple, 6); }
+    }
 
+    &--teal {
+        background-color: $teal;
+        &:hover { background-color: darken($teal, 4); }
+    }
 
-.button--purple,
-.button--teal,
-.button--orange,
-.button--blue,
-.button--black,
-.button--naked {
-    color: $white;
-    &:hover { color: $white; }
-}
+    &--orange {
+        background-color: $orange;
+        &:hover { background-color: darken($orange, 4); }
+    }
 
+    &--blue {
+        background-color: $blue;
+        &:hover { background-color: darken($blue, 4); }
+    }
 
-.button--purple {
-    background-color: $purple;
-    &:hover { background-color: darken($purple, 6); }
-}
+    &--black {
+        background-color: rgba($black, .8);
+        &:hover { background-color: rgba($black, .9); }
+    }
 
-.button--teal {
-    background-color: $teal;
-    &:hover { background-color: darken($teal, 4); }
-}
+    &--naked {
+        background-color: transparent;
+        @include breakpoint($large) { margin-left: -10px; }
 
-.button--orange {
-    background-color: $orange;
-    &:hover { background-color: darken($orange, 4); }
-}
+        &:hover {
+            background-color: rgba($black, .2);
+            @extend .u-transition;
+        }
+    }
 
-.button--blue {
-    background-color: $blue;
-    &:hover { background-color: darken($blue, 4); }
-}
-
-.button--black {
-    background-color: rgba($black, .8);
-    &:hover { background-color: rgba($black, .9); }
-}
-
-.button--naked {
-    background-color: transparent;
-    @include breakpoint($large) { margin-left: -10px; }
-
-    &:hover {
-        background-color: rgba($black, .2);
-        @extend .u-transition;
+    &--disabled{
+      pointer-events: none;
+      opacity: 0.5;
     }
 }
 
-.button--disabled{
-  pointer-events: none;
-  opacity: 0.5;
-}
+
+
+.button { @extend .u-button; }
+
+
+
+

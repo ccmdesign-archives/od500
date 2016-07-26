@@ -1,0 +1,20 @@
+// Company List - Temp
+
+
+
+.company {
+  transition: all .4s ease;
+
+  th:first-child,
+  td:first-child { padding-left: 50px; }
+
+  &__type { max-width: 120px; }
+  &__founded { max-width: 150px; }
+  &__location { max-width: 250px; }
+  &__last-update { max-width:250px; }
+
+  &:hover {
+    background-color: rgba($black, .1);
+    transition: all .2s ease;
+  }
+}

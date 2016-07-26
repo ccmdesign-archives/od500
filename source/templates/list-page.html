@@ -2,37 +2,84 @@
 
 {% block content %}
   <div class="top-section top-section--od500-header top-section--main-color">
-    <h1>Company list</h1>  
+    <h1>All Companies</h1>
   </div>
-  <section class="page-section">
-  <table>
-    <thead>
+  
+  <table class="table-sortable table-sortable--main-color">
+    <thead class="company">
     {# Implement list.js in this table #}
-      <th>Company</th>
-      <th>Category</th>
-      <th>Type</th>
-      <th>Founded</th>
-      <th>Location</th>
-      <th>Last Update</th>
+      
+      <th class="table-sortable__head-cell"></th>
+      <th class="table-sortable__head-cell company__name">
+        <span>Company</span>
+      
+        <div class="table-sortable__control-group">
+          <span class="table-sortable__control table-sortable__control--simple js-open-table-search"><i class="material-icons">search</i></span>
+          <span class="table-sortable__control table-sortable__control--simple"><i class="material-icons">keyboard_arrow_down</i></span>
+        </div>
+        <form class="table-sortable__search ">
+          <input type="text" placeholder="Filter by text">
+          <button type="submit" class=""><i class="material-icons">search</i></button>
+        </form>
+      </th>
+
+      <th class="table-sortable__head-cell company__category">
+        <span>Category</span>
+        <div class="table-sortable__control-group">
+          <span class="table-sortable__control table-sortable__control--simple"><i class="material-icons">keyboard_arrow_down</i></span>
+        </div>
+      </th>
+      <th class="table-sortable__head-cell company__type">
+        <span>Type</span>
+        <div class="table-sortable__control-group">
+          <span class="table-sortable__control table-sortable__control--simple"><i class="material-icons">keyboard_arrow_down</i></span>
+        </div>
+      </th>
+
+      <th class="table-sortable__head-cell company__founded">
+        <span>Founded</span>
+        <div class="table-sortable__control-group">
+          <span class="table-sortable__control table-sortable__control--simple"><i class="material-icons">keyboard_arrow_down</i></span>
+        </div>
+      </th>
+      <th class="table-sortable__head-cell company__location">
+        <span>Location</span>
+        <div class="table-sortable__control-group">
+          <span class="table-sortable__control table-sortable__control--simple js-open-table-search"><i class="material-icons">search</i></span>
+          <span class="table-sortable__control table-sortable__control--simple"><i class="material-icons">keyboard_arrow_down</i></span>  
+        </div>
+        <form class="table-sortable__search ">
+          <input type="text" placeholder="Filter by text">
+          <button type="submit" class=""><i class="material-icons">search</i></button>
+        </form>
+      </th>
+      <th class="table-sortable__head-cell company__last-update">
+        <span>Last Update</span>
+        <div class="table-sortable__control-group">
+          <span class="table-sortable__control table-sortable__control--simple"><i class="material-icons">keyboard_arrow_down</i></span>
+        </div>
+      </th>
+      <th class="table-sortable__head-cell"></th>
     </thead>
     <tbody>
       {% for i in companies %}
       <tr class="company" id="{{i.company_name_id}}" >
+        <td></td>
         <td class="company__name"><a href="{{i.url}}" target="_blank">{{i.company_name}}</a></td>
         <td class="company__category">{{i.company_category}}</td>
         <td class="company__type">{{i.company_type}}</td>
         <td class="company__founded">{{i.year_founded}}</td>
         {# {% set location =  %} #}
         <td class="company__location"><a href="https://www.google.ca/maps/place/{{i.city}},+{{i.state}},+USA" target="_blank">{{i.city}}, {{i.state}}</a></td>
-        <td class="company__last-updated">{{i.last_updated | truncate(10) }}</td>
+        <td class="company__last-update">{{i.last_updated | truncate(10) }}</td>
         {# <td><a href="https://namara.io/#/search?query={{i.city}}" target="_blank">Datasets for this location</a></td> #}
+        <td></td>
       </tr>
       {% endfor %}
     </tbody>
   </table>  
-  </section>
 
-  <!-- Loops through "images" array -->
+  
   
   
 {% endblock %}

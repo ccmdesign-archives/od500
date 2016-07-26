@@ -49,13 +49,13 @@ button,
 input[type='button'],
 input[type='reset'],
 input[type="submit"] {
-    @extend .button;
+    // @extend .button;
     border: 0;
 }
 
 input[type="file"] { @extend .button; }
 
-button {
+.button {
     border-radius: 0;
     padding: 17px 20px;
 }
@@ -73,7 +73,6 @@ legend {
 
 form,
 .form {
-    padding: 10px 0;
 
     ::-webkit-input-placeholder {
         color: $black;
