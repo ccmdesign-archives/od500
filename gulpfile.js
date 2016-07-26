@@ -1,6 +1,7 @@
 var del             = require('del'),
     gulp            = require('gulp'),
     sass            = require('gulp-sass'),
+    data            = require('gulp-data'),
     shell           = require('gulp-shell'),
     uglify          = require('gulp-uglify'),
     ghPages         = require('gulp-gh-pages'),
@@ -53,14 +54,27 @@ gulp.task('js', function () {
 });
 
 // Nunjucks
-gulp.task('nunjucks', function () {
-  nunjucksRender.nunjucks.configure(['source/templates/']);
+// gulp.task('nunjucks', function () {
+//   nunjucksRender.nunjucks.configure(['source/templates/']);
 
-  // Gets .html and .nunjucks files in pages
-  return gulp.src('source/templates/**/[^_]*.html')
-    // Renders template with nunjucks
-    .pipe(nunjucksRender({ path: 'source/templates' }))
-    // output files in app folder
+//   // Gets .html and .nunjucks files in pages
+//   return gulp.src('source/templates/**/[^_]*.html')
+//     // Renders template with nunjucks
+//     .pipe(nunjucksRender({ path: 'source/templates' }))
+//     // output files in app folder
+//     .pipe(gulp.dest('public'))
+//     .pipe(browserSync.reload({ stream: true }));
+// });
+
+gulp.task('nunjucks', function() {
+  return gulp.src('source/templates/**/*.+(html|nunjucks)')
+    // Adding data to Nunjucks
+    .pipe(data(function() {
+      return require('./source/data/data.json')
+    }))
+    .pipe(nunjucksRender({
+      path: ['source/templates']
+    }))
     .pipe(gulp.dest('public'))
     .pipe(browserSync.reload({ stream: true }));
 });
