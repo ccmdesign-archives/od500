@@ -1,0 +1,38 @@
+{% extends '_base.html' %}
+
+{% block content %}
+  <div class="top-section top-section--od500-header top-section--main-color">
+    <h1>Company list</h1>  
+  </div>
+  <section class="page-section">
+  <table>
+    <thead>
+    {# Implement list.js in this table #}
+      <th>Company</th>
+      <th>Category</th>
+      <th>Type</th>
+      <th>Founded</th>
+      <th>Location</th>
+      <th>Last Update</th>
+    </thead>
+    <tbody>
+      {% for i in companies %}
+      <tr class="company" id="{{i.company_name_id}}" >
+        <td class="company__name"><a href="{{i.url}}" target="_blank">{{i.company_name}}</a></td>
+        <td class="company__category">{{i.company_category}}</td>
+        <td class="company__type">{{i.company_type}}</td>
+        <td class="company__founded">{{i.year_founded}}</td>
+        {# {% set location =  %} #}
+        <td class="company__location"><a href="https://www.google.ca/maps/place/{{i.city}},+{{i.state}},+USA" target="_blank">{{i.city}}, {{i.state}}</a></td>
+        <td class="company__last-updated">{{i.last_updated | truncate(10) }}</td>
+        {# <td><a href="https://namara.io/#/search?query={{i.city}}" target="_blank">Datasets for this location</a></td> #}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>  
+  </section>
+
+  <!-- Loops through "images" array -->
+  
+  
+{% endblock %}
