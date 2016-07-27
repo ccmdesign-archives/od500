@@ -5,11 +5,15 @@
     <h1>All Companies</h1>
   </div>
   
-  <table class="table-sortable table-sortable--main-color">
+  {# TODO
+    Implement list.js in this table 
+    Implement JS to make THEAD position:fixed - needs to add the class .table-sortable--fixed to the .table-sortable component, when thead reaches top of viewport.
+  #}
+
+  <table class="table-sortable table-sortable--main-color"> {# .table-sortable--fixed #}
+    
     <thead class="company">
-    {# Implement list.js in this table #}
-      
-      <th class="table-sortable__head-cell"></th>
+      <th class="table-sortable__head-cell">&nbsp;</th>
       <th class="table-sortable__head-cell company__name">
         <span>Company</span>
       
@@ -59,7 +63,7 @@
           <span class="table-sortable__control table-sortable__control--simple"><i class="material-icons">keyboard_arrow_down</i></span>
         </div>
       </th>
-      <th class="table-sortable__head-cell"></th>
+      <th class="table-sortable__head-cell">&nbsp;</th>
     </thead>
     <tbody>
       {% for i in companies %}
@@ -71,8 +75,9 @@
         <td class="company__founded">{{i.year_founded}}</td>
         {# {% set location =  %} #}
         <td class="company__location"><a href="https://www.google.ca/maps/place/{{i.city}},+{{i.state}},+USA" target="_blank">{{i.city}}, {{i.state}}</a></td>
+        {# Need to have a custom filter in nunjucks to format the datetime entry #}
         <td class="company__last-update">{{i.last_updated | truncate(10) }}</td>
-        {# <td><a href="https://namara.io/#/search?query={{i.city}}" target="_blank">Datasets for this location</a></td> #}
+        
         <td></td>
       </tr>
       {% endfor %}

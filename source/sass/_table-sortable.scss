@@ -1,7 +1,7 @@
 .table-sortable {
   @extend .u-table; // Added .u-table to t
 
-  td { padding: 15px 20px 15px 0; }
+  td { padding: 15px 0; }
 
   &__head-cell {
     background-color: darken($main-color, 4);
@@ -70,5 +70,14 @@
       &:hover { background-color: darken($main-color, 10); }
 
     }
+  }
+}
+
+.table-sortable--fixed {
+  thead {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
   }
 }
