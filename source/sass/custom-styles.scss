@@ -6,11 +6,19 @@ $main-color: $blue;
 $accent-color: $orange;
 
 
-@import 'card-team';
-@import 'timeline';
+
 @import 'controls';
 @import 'company';
+
+
+// Port these components to styleguide
+@import 'card-team';
+@import 'timeline';
 @import 'table-sortable';
+@import 'subscribe';
+
+
+
 
 @import 'custom';
 
